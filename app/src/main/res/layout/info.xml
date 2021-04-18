@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InfoActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="247dp"
+        android:text="About Amba Farmers' Voice"
+        android:textColor="@color/black"
+        android:textSize="75px" />
+
+    <TextView
+        android:layout_width="393dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="293dp"
+        android:layout_marginBottom="41dp"
+        android:gravity="center"
+        android:text="Amba Farmers Voice (AFV) is an Agricultural Education program produced in collaboration with SCBC TV to assist Southern Cameroons farmers &amp; refugees with skills &amp; appropriate technology to increase food production during this time of war declared on them by LRC.  Southern Cameroons is endowed with fertile agricultural land and hard workers, but most farmers still practice subsistence agriculture, due to lack of information, capital and extension services.
+
+Our mission is to ensure that every Southern Cameroonian farmer &amp; refugee has access to practical &amp; quality agricultural education to increase food production.
+
+It is our vision to reframe agricultural education by shifting the subsistence agricultural paradigm to a process that integrates cost effective &amp; practical innovative solutions to inspire personalized learning &amp; community-based farming.
+
+AFV is committed to UN SDG #4, which “ensures inclusive &amp; equitable quality education &amp; promote lifelong learning opportunities for all”."
+        android:textSize="40px" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        app:srcCompat="@drawable/logo" />
+
+
+</RelativeLayout>
