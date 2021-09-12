@@ -1,2 +1,13 @@
-
 *.bin
+Amba/.idea*
+Amba/.gradle*
+Amba/local.properties*
+
+
+
+
+
+
+
+
+
