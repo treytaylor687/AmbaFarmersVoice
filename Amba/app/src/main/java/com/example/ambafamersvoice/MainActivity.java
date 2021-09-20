@@ -1,20 +1,14 @@
 package com.example.ambafamersvoice;
-
 import android.os.Bundle;
-
 import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.View;
-
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.ambafamersvoice.databinding.ActivityMainBinding;
-
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -72,5 +66,9 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public void sendMessage(View view) {
+        // Do something in response to button
     }
 }
