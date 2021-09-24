@@ -29,16 +29,16 @@ public class CategoryFragment extends Fragment {
         //ListView listView = (ListView) view.findViewById(R.id.fruitView);
         binding = FragmentCategoryBinding.inflate(inflater, container, false);
         View view = inflater.inflate(R.layout.fragment_category, container, false);
-        Button btn4 = (Button) view.findViewById(R.id.button4);
-        btn4.setOnClickListener(new View.OnClickListener() {
+        Button btn_aqua = (Button) view.findViewById(R.id.btn_aqua);
+        btn_aqua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent in = new Intent(getActivity(), Video_1.class);
                 startActivity(in);}
        });
-        return view;
-    }
 
+       return view;
+   }
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
