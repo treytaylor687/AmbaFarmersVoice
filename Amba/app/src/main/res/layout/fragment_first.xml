@@ -11,37 +11,35 @@
         android:id="@+id/button_first"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/about_us"
+        android:text="About Us"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_first2" />
+
 
     <Button
         android:id="@+id/button_first2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="192dp"
-        android:text="@string/video_n_categories"
-        app:layout_constraintBottom_toTopOf="@+id/button_first"
+        android:text="Video \n Categories"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.69" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="375dp"
         android:layout_height="274dp"
-        android:layout_marginTop="25dp"
         android:src="@drawable/logo"
         app:layout_constraintBottom_toTopOf="@+id/button_first2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/todo" />
+        app:layout_constraintVertical_bias="0.479" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
