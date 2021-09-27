@@ -17,4 +17,7 @@
     <string name="title_activity_fruit">FruitActivity</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about_us">About Us</string>
+    <string name="video_n_categories">Video \n Categories</string>
+    <string name="todo">TODO</string>
 </resources>
