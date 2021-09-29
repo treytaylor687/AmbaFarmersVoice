@@ -54,14 +54,14 @@ public class CategoryFragment extends Fragment {
         btn_vege.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), VegetablesPage.class);
                 startActivity(in);}
         });
 
         btn_cer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), CerealsPage.class);
                 startActivity(in);}
         });
 
@@ -82,7 +82,7 @@ public class CategoryFragment extends Fragment {
         btn_tubers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), TubersPage.class);
                 startActivity(in);}
         });
 
@@ -96,7 +96,7 @@ public class CategoryFragment extends Fragment {
         btn_pest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), PestPage.class);
                 startActivity(in);}
         });
 

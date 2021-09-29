@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AmbaFamersVoice">
         <activity
+            android:name=".PestPage"
+            android:exported="true" />
+        <activity
+            android:name=".TubersPage"
+            android:exported="true" />
+        <activity
+            android:name=".CerealsPage"
+            android:exported="true" />
+        <activity
+            android:name=".VegetablesPage"
+            android:exported="true" />
+        <activity
             android:name=".Video_1"
             android:exported="true" />
         <activity
