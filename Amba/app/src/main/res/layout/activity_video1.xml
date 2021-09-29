@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".Video_1">
 
+    <ImageView
+        android:id="@+id/rImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
