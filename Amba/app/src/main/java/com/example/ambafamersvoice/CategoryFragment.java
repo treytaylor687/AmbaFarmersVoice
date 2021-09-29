@@ -43,6 +43,8 @@ public class CategoryFragment extends Fragment {
         Button btn_pest = (Button) view.findViewById(R.id.btn_pest);
         Button btn_business = (Button) view.findViewById(R.id.btn_business);
         Button btn_bee = (Button) view.findViewById(R.id.btn_bee);
+        Button btn_feed = (Button) view.findViewById(R.id.btn_feed);
+        Button btn_knowledge = (Button) view.findViewById(R.id.btn_knowledge);
 
         btn_post.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,9 +116,19 @@ public class CategoryFragment extends Fragment {
                 startActivity(in);}
         });
 
+        btn_feed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(), FeedPage.class);
+                startActivity(in);}
+        });
 
-
-
+        btn_knowledge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(), KnowledgePage.class);
+                startActivity(in);}
+        });
 
         btn_aqua.setOnClickListener(new View.OnClickListener() {
             @Override
