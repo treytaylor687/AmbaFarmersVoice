@@ -10,6 +10,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AmbaFamersVoice">
         <activity
+            android:name=".HarvestPage"
+            android:exported="true" />
+        <activity
+            android:name=".FruitPage"
+            android:exported="true" />
+        <activity
+            android:name=".BeePage"
+            android:exported="true" />
+        <activity
+            android:name=".BusinessPage"
+            android:exported="true" />
+        <activity
+            android:name=".FertilizerPage"
+            android:exported="true" />
+        <activity
+            android:name=".StockPage"
+            android:exported="true" />
+        <activity
+            android:name=".AquaPage"
+            android:exported="true" />
+        <activity
+            android:name=".IrrigationPage"
+            android:exported="true" />
+        <activity
             android:name=".KnowledgePage"
             android:exported="true" />
         <activity

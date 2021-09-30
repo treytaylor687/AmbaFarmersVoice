@@ -49,7 +49,7 @@ public class CategoryFragment extends Fragment {
         btn_post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), HarvestPage.class);
                 startActivity(in);}
         });
 
@@ -70,14 +70,14 @@ public class CategoryFragment extends Fragment {
         btn_fert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), FertilizerPage.class);
                 startActivity(in);}
         });
 
         btn_irri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), IrrigationPage.class);
                 startActivity(in);}
         });
 
@@ -91,7 +91,7 @@ public class CategoryFragment extends Fragment {
         btn_live.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), StockPage.class);
                 startActivity(in);}
         });
 
@@ -105,14 +105,14 @@ public class CategoryFragment extends Fragment {
         btn_business.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), BusinessPage.class);
                 startActivity(in);}
         });
 
         btn_bee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), BeePage.class);
                 startActivity(in);}
         });
 
@@ -133,14 +133,14 @@ public class CategoryFragment extends Fragment {
         btn_aqua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), AquaPage.class);
                 startActivity(in);}
         });
 
         btn_fruit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), FruitPage.class);
                 startActivity(in);}
         });
 
