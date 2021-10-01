@@ -43,92 +43,104 @@ public class CategoryFragment extends Fragment {
         Button btn_pest = (Button) view.findViewById(R.id.btn_pest);
         Button btn_business = (Button) view.findViewById(R.id.btn_business);
         Button btn_bee = (Button) view.findViewById(R.id.btn_bee);
+        Button btn_feed = (Button) view.findViewById(R.id.btn_feed);
+        Button btn_knowledge = (Button) view.findViewById(R.id.btn_knowledge);
 
         btn_post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), HarvestPage.class);
                 startActivity(in);}
         });
 
         btn_vege.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), VegetablesPage.class);
                 startActivity(in);}
         });
 
         btn_cer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), CerealsPage.class);
                 startActivity(in);}
         });
 
         btn_fert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), FertilizerPage.class);
                 startActivity(in);}
         });
 
         btn_irri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), IrrigationPage.class);
                 startActivity(in);}
         });
 
         btn_tubers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), TubersPage.class);
                 startActivity(in);}
         });
 
         btn_live.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), StockPage.class);
                 startActivity(in);}
         });
 
         btn_pest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), PestPage.class);
                 startActivity(in);}
         });
 
         btn_business.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), BusinessPage.class);
                 startActivity(in);}
         });
 
         btn_bee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), BeePage.class);
                 startActivity(in);}
         });
 
+        btn_feed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(), FeedPage.class);
+                startActivity(in);}
+        });
 
-
-
+        btn_knowledge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(), KnowledgePage.class);
+                startActivity(in);}
+        });
 
         btn_aqua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), AquaPage.class);
                 startActivity(in);}
         });
 
         btn_fruit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Video_1.class);
+                Intent in = new Intent(getActivity(), FruitPage.class);
                 startActivity(in);}
         });
 
