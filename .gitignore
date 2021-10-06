@@ -1,6 +1,8 @@
 *.bin
+*.DS_Store
 Amba/.idea/
 Amba/.gradle/
 Amba/local.properties
 Amba/.DS_Store
 Amba/app/.DS_Store
+Amba/app/build
