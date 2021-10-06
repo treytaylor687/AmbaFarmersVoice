@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "803244965008",
+    "firebase_url": "https://amba-farmers-voice-d1a51-default-rtdb.firebaseio.com",
+    "project_id": "amba-farmers-voice-d1a51",
+    "storage_bucket": "amba-farmers-voice-d1a51.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:803244965008:android:97271269774ba27d2d6c15",
+        "android_client_info": {
+          "package_name": "com.example.ambafamersvoice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "803244965008-mhv0qr3egnfuq9esevc9u428drl8ahj5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD52LlOd2ti4GeP-jk5NXkmZiWq7ofl00Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "803244965008-mhv0qr3egnfuq9esevc9u428drl8ahj5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:803244965008:android:9c04cb300297b65e2d6c15",
+        "android_client_info": {
+          "package_name": "com.example.ambafarmersvoice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "803244965008-mhv0qr3egnfuq9esevc9u428drl8ahj5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD52LlOd2ti4GeP-jk5NXkmZiWq7ofl00Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "803244965008-mhv0qr3egnfuq9esevc9u428drl8ahj5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
