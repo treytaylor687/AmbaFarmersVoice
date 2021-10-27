@@ -11,6 +11,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AmbaFamersVoice">
         <activity
+            android:name=".CerealVideos.MakeOwnFridge"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name=".CerealVideos.RocketStove"
+            android:label="@string/app_name">
+        </activity>
+        <activity
             android:name=".HarvestPage"
             android:exported="true" />
         <activity

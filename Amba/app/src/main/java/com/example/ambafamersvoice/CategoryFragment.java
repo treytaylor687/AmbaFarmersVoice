@@ -18,10 +18,6 @@ public class CategoryFragment extends Fragment {
 
     private FragmentCategoryBinding binding;
 
-
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
