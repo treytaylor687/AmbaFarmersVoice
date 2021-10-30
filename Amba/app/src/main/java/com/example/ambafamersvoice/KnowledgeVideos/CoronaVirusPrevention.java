@@ -1,6 +1,5 @@
-package com.example.ambafamersvoice.CerealVideos;
+package com.example.ambafamersvoice.KnowledgeVideos;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.MediaPlayer;
@@ -15,10 +14,10 @@ import android.webkit.URLUtil;
 import android.widget.TextView;
 import com.example.ambafamersvoice.R;
 
-public class RocketStove extends AppCompatActivity {
+public class CoronaVirusPrevention extends AppCompatActivity {
 
     private static final String VIDEO_SAMPLE =
-            "https://firebasestorage.googleapis.com/v0/b/amba-farmers-voice-d1a51.appspot.com/o/rocket_stove.mp4?alt=media&token=77bf59cd-1898-4020-aa63-f2c8f29547a7";
+            "https://firebasestorage.googleapis.com/v0/b/amba-farmers-voice-d1a51.appspot.com/o/Corona%20Virus%20Prevention%20for%20Ambazonians%20in%20Bushes%2C%20Refugee%20Camps%20and%20Villages.mp4?alt=media&token=bc85a0c0-ce96-494c-84aa-590bdeca1a78";
     private VideoView mVideoView;
     private TextView mBufferingTextView;
     private int mCurrentPosition = 0;
@@ -28,7 +27,7 @@ public class RocketStove extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cereal_rocket_stove);
+        setContentView(R.layout.knowledge_corona_virus_prevention);
 
         mBufferingTextView = findViewById(R.id.buffering_textview);
         mVideoView = findViewById(R.id.videoview);
@@ -80,7 +79,7 @@ public class RocketStove extends AppCompatActivity {
                 mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
                     public void onCompletion(MediaPlayer mediaPlayer) {
-                        Toast.makeText(RocketStove.this, "Playback completed",
+                        Toast.makeText(CoronaVirusPrevention.this, "Playback completed",
                                 Toast.LENGTH_SHORT).show();
                         mVideoView.seekTo(1);
                     }

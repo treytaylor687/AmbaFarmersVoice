@@ -6,18 +6,253 @@
     android:layout_height="match_parent"
     tools:context=".KnowledgePage">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="240dp"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:text="Technical Knowledge"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.02" />
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="240dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="Technical Knowledge"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.02" />
+
+            <!--  Rocket Stove  -->
+            <RelativeLayout
+                android:id="@+id/image_btn0"
+                android:layout_width="match_parent"
+                android:layout_height="158dp"
+                android:layout_margin="10dp"
+                tools:layout_editor_absoluteX="9dp"
+                tools:layout_editor_absoluteY="26dp">
+
+                <ImageButton
+                    android:id="@+id/btn_rocket_stove"
+                    android:layout_width="243dp"
+                    android:layout_height="108dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/rocket_stove" />
+
+                <TextView
+                    android:layout_width="381dp"
+                    android:layout_height="37dp"
+                    android:layout_below="@+id/btn_rocket_stove"
+                    android:layout_marginTop="1dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="16 Year Old Refugee Designs Rocket Stove"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <!--  Make Own Fridge  -->
+            <RelativeLayout
+                android:id="@+id/image_btn1"
+                android:layout_width="match_parent"
+                android:layout_height="158dp"
+                android:layout_margin="10dp"
+                tools:layout_editor_absoluteX="9dp"
+                tools:layout_editor_absoluteY="26dp">
+
+                <ImageButton
+                    android:id="@+id/btn_make_own_fridge"
+                    android:layout_width="243dp"
+                    android:layout_height="108dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/make_own_fridge" />
+
+                <TextView
+                    android:layout_width="381dp"
+                    android:layout_height="37dp"
+                    android:layout_below="@+id/btn_make_own_fridge"
+                    android:layout_marginTop="1dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="How to make your own Local Fridge Without Electricity"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <!--  Treat Diarrhea  -->
+            <RelativeLayout
+                android:id="@+id/image_btn2"
+                android:layout_width="match_parent"
+                android:layout_height="158dp"
+                android:layout_margin="10dp"
+                tools:layout_editor_absoluteX="9dp"
+                tools:layout_editor_absoluteY="26dp">
+
+                <ImageButton
+                    android:id="@+id/btn_treat_diarrhea"
+                    android:layout_width="243dp"
+                    android:layout_height="108dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/treat_diarrhea" />
+
+                <TextView
+                    android:layout_width="381dp"
+                    android:layout_height="37dp"
+                    android:layout_below="@+id/btn_treat_diarrhea"
+                    android:layout_marginTop="1dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="Amba Ambazonia Indigenous Technical Knowledge: How to Treat Diarrhea with Guava Leaves Voice"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <!--  Build Hut Bush 2  -->
+            <RelativeLayout
+                android:id="@+id/image_btn3"
+                android:layout_width="match_parent"
+                android:layout_height="158dp"
+                android:layout_margin="10dp"
+                tools:layout_editor_absoluteX="9dp"
+                tools:layout_editor_absoluteY="26dp">
+
+                <ImageButton
+                    android:id="@+id/btn_build_hut_bush_2"
+                    android:layout_width="243dp"
+                    android:layout_height="108dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/build_hut_bush_2" />
+
+                <TextView
+                    android:layout_width="381dp"
+                    android:layout_height="37dp"
+                    android:layout_below="@+id/btn_build_hut_bush_2"
+                    android:layout_marginTop="1dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="How to build a hut in the bush - Part 2"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <!--  Corona Virus Prevention  -->
+            <RelativeLayout
+                android:id="@+id/image_btn4"
+                android:layout_width="match_parent"
+                android:layout_height="158dp"
+                android:layout_margin="10dp"
+                tools:layout_editor_absoluteX="9dp"
+                tools:layout_editor_absoluteY="26dp">
+
+                <ImageButton
+                    android:id="@+id/btn_corona_virus_prevention"
+                    android:layout_width="243dp"
+                    android:layout_height="108dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/corona_virus_prevention" />
+
+                <TextView
+                    android:layout_width="381dp"
+                    android:layout_height="37dp"
+                    android:layout_below="@+id/btn_corona_virus_prevention"
+                    android:layout_marginTop="1dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="Corona Virus Prevention for Ambazonians in Bushes, Refugee Camps and Villages"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <!--  Hand Sanitizer  -->
+            <RelativeLayout
+                android:id="@+id/image_btn5"
+                android:layout_width="match_parent"
+                android:layout_height="158dp"
+                android:layout_margin="10dp"
+                tools:layout_editor_absoluteX="9dp"
+                tools:layout_editor_absoluteY="26dp">
+
+                <ImageButton
+                    android:id="@+id/btn_hand_sanitizer"
+                    android:layout_width="243dp"
+                    android:layout_height="108dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/hand_sanitizer" />
+
+                <TextView
+                    android:layout_width="381dp"
+                    android:layout_height="37dp"
+                    android:layout_below="@+id/btn_hand_sanitizer"
+                    android:layout_marginTop="1dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="How to make Hand Sanitizers in Refugee Camps/Villages with Aloe Vera, Alcohol or Afofo - HSS-IG CAR"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

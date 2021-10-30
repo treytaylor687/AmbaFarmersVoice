@@ -1,6 +1,5 @@
-package com.example.ambafamersvoice.CerealVideos;
+package com.example.ambafamersvoice.HarvestVideos;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.MediaPlayer;
@@ -15,10 +14,10 @@ import android.webkit.URLUtil;
 import android.widget.TextView;
 import com.example.ambafamersvoice.R;
 
-public class MakeOwnFridge extends AppCompatActivity {
+public class PreserveFoodDocu2 extends AppCompatActivity {
 
     private static final String VIDEO_SAMPLE =
-            "https://firebasestorage.googleapis.com/v0/b/amba-farmers-voice-d1a51.appspot.com/o/make_own_fridge.mp4?alt=media&token=a8cf1670-79b7-4fe9-8574-9cd6329d4c05";
+            "https://firebasestorage.googleapis.com/v0/b/amba-farmers-voice-d1a51.appspot.com/o/How%20to%20Preserve%20Food%20%26%20Documents%20During%20War%20-%20Part%202.mp4?alt=media&token=acec9348-9f4c-40dc-ae4c-1a7b6140ec6a";
     private VideoView mVideoView;
     private TextView mBufferingTextView;
     private int mCurrentPosition = 0;
@@ -28,7 +27,7 @@ public class MakeOwnFridge extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cereal_make_own_fridge);
+        setContentView(R.layout.harvest_preserve_food_docu_2);
 
         mBufferingTextView = findViewById(R.id.buffering_textview);
         mVideoView = findViewById(R.id.videoview);
@@ -80,7 +79,7 @@ public class MakeOwnFridge extends AppCompatActivity {
                 mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
                     public void onCompletion(MediaPlayer mediaPlayer) {
-                        Toast.makeText(MakeOwnFridge.this, "Playback completed",
+                        Toast.makeText(PreserveFoodDocu2.this, "Playback completed",
                                 Toast.LENGTH_SHORT).show();
                         mVideoView.seekTo(1);
                     }

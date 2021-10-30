@@ -1,18 +1,15 @@
 package com.example.ambafamersvoice;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
+import com.example.ambafamersvoice.FertilizerVideos.HumanUrineFertilizer2;
+import com.example.ambafamersvoice.FertilizerVideos.UrinePissFertilizer2;
 
 public class FertilizerPage extends AppCompatActivity {
     ImageView rImage;
@@ -20,31 +17,20 @@ public class FertilizerPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fertilizer_page);
-        rImage = findViewById(R.id.rImage);
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
 
-        DatabaseReference databaseReference = firebaseDatabase.getReference();
-
-        DatabaseReference getImage = databaseReference.child("image");
-
-        getImage.addListenerForSingleValueEvent(new ValueEventListener() {
+        ImageButton urine_piss_fertilizer_2 = (ImageButton)findViewById(R.id.btn_urine_piss_fertilizer_2);
+        urine_piss_fertilizer_2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                // getting a DataSnapshot for the location at the specified
-                // relative path and getting in the link variable
-                String link = dataSnapshot.getValue(String.class);
-
-                // loading that data into rImage
-                // variable which is ImageView
-                Picasso.get().load(link).into(rImage);
+            public void onClick(View v) {
+                startActivity(new Intent(FertilizerPage.this, UrinePissFertilizer2.class));
             }
+        });
 
-            // this will called when any problem
-            // occurs in getting data
+        ImageButton human_urine_fertilizer_2 = (ImageButton)findViewById(R.id.btn_human_urine_fertilizer_2);
+        human_urine_fertilizer_2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                // we are showing that error message in toast
-                Toast.makeText(FertilizerPage.this, "Error Loading Image", Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {
+                startActivity(new Intent(FertilizerPage.this, HumanUrineFertilizer2.class));
             }
         });
     }

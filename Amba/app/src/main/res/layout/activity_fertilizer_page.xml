@@ -6,25 +6,105 @@
     android:layout_height="match_parent"
     tools:context=".FertilizerPage">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="180dp"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:text="Fertilizer"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.02" />
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/rImage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="Fertilizer"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.02" />
+
+            <!--  Urine Piss Fertilizer 2  -->
+            <RelativeLayout
+                android:id="@+id/image_btn0"
+                android:layout_width="match_parent"
+                android:layout_height="158dp"
+                android:layout_margin="10dp"
+                tools:layout_editor_absoluteX="9dp"
+                tools:layout_editor_absoluteY="26dp">
+
+                <ImageButton
+                    android:id="@+id/btn_urine_piss_fertilizer_2"
+                    android:layout_width="243dp"
+                    android:layout_height="108dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/urine_piss_fertilizer_2" />
+
+                <TextView
+                    android:layout_width="381dp"
+                    android:layout_height="37dp"
+                    android:layout_below="@+id/btn_urine_piss_fertilizer_2"
+                    android:layout_marginTop="1dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="How to Make Your Own Organic Fertilizer With Urine (Piss) Part 2"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <!--  Urine Piss Fertilizer 2  -->
+            <RelativeLayout
+                android:id="@+id/image_btn1"
+                android:layout_width="match_parent"
+                android:layout_height="158dp"
+                android:layout_margin="10dp"
+                tools:layout_editor_absoluteX="9dp"
+                tools:layout_editor_absoluteY="26dp">
+
+                <ImageButton
+                    android:id="@+id/btn_human_urine_fertilizer_2"
+                    android:layout_width="243dp"
+                    android:layout_height="108dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/human_urine_fertilizer_2" />
+
+                <TextView
+                    android:layout_width="381dp"
+                    android:layout_height="37dp"
+                    android:layout_below="@+id/btn_human_urine_fertilizer_2"
+                    android:layout_marginTop="1dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="How to make your own organic Fertilizer using Human Urine Episode 2"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
