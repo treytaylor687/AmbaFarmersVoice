@@ -141,9 +141,46 @@
                     android:textStyle="bold" />
             </RelativeLayout>
 
-            <!--  Build Hut Bush 2  -->
+            <!--  Build Hut Bush 1  -->
             <RelativeLayout
                 android:id="@+id/image_btn3"
+                android:layout_width="match_parent"
+                android:layout_height="158dp"
+                android:layout_margin="10dp"
+                tools:layout_editor_absoluteX="9dp"
+                tools:layout_editor_absoluteY="26dp">
+
+                <ImageButton
+                    android:id="@+id/btn_build_hut_bush_1"
+                    android:layout_width="243dp"
+                    android:layout_height="108dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/build_hut_bush_1" />
+
+                <TextView
+                    android:layout_width="381dp"
+                    android:layout_height="37dp"
+                    android:layout_below="@+id/btn_build_hut_bush_1"
+                    android:layout_marginTop="1dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="How to build a hut in the bush - Part 1"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <!--  Build Hut Bush 2  -->
+            <RelativeLayout
+                android:id="@+id/image_btn4"
                 android:layout_width="match_parent"
                 android:layout_height="158dp"
                 android:layout_margin="10dp"
@@ -180,7 +217,7 @@
 
             <!--  Corona Virus Prevention  -->
             <RelativeLayout
-                android:id="@+id/image_btn4"
+                android:id="@+id/image_btn5"
                 android:layout_width="match_parent"
                 android:layout_height="158dp"
                 android:layout_margin="10dp"
@@ -217,7 +254,7 @@
 
             <!--  Hand Sanitizer  -->
             <RelativeLayout
-                android:id="@+id/image_btn5"
+                android:id="@+id/image_btn6"
                 android:layout_width="match_parent"
                 android:layout_height="158dp"
                 android:layout_margin="10dp"

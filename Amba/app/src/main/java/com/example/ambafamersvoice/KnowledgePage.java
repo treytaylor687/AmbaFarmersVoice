@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.ambafamersvoice.KnowledgeVideos.BuildHutBush1;
 import com.example.ambafamersvoice.KnowledgeVideos.BuildHutBush2;
 import com.example.ambafamersvoice.KnowledgeVideos.CoronaVirusPrevention;
 import com.example.ambafamersvoice.KnowledgeVideos.HandSanitizer;
@@ -42,6 +43,14 @@ public class KnowledgePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(KnowledgePage.this, TreatDiarrhea.class));
+            }
+        });
+
+        ImageButton build_hut_bush_1 = (ImageButton)findViewById(R.id.btn_build_hut_bush_1);
+        build_hut_bush_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(KnowledgePage.this, BuildHutBush1.class));
             }
         });
 
