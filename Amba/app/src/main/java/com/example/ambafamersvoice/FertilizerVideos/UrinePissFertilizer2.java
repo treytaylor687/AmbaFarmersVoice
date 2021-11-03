@@ -1,6 +1,5 @@
-package com.example.ambafamersvoice.CerealVideos;
+package com.example.ambafamersvoice.FertilizerVideos;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.MediaPlayer;
@@ -15,10 +14,10 @@ import android.webkit.URLUtil;
 import android.widget.TextView;
 import com.example.ambafamersvoice.R;
 
-public class NationalLockdownStrategy extends AppCompatActivity {
+public class UrinePissFertilizer2 extends AppCompatActivity {
 
     private static final String VIDEO_SAMPLE =
-            "https://firebasestorage.googleapis.com/v0/b/amba-farmers-voice-d1a51.appspot.com/o/Amba%20Farmers%20Voice%20-%20National%20Lockdown%20Strategies%20in%20Pidgin.mp4?alt=media&token=76e73dc7-8d0a-4608-afde-8679a1c359d0";
+            "https://firebasestorage.googleapis.com/v0/b/amba-farmers-voice-d1a51.appspot.com/o/How%20to%20Make%20Your%20Own%20Organic%20Fertilizer%20With%20Urine%20(Piss)%20Part%202.mp4?alt=media&token=ce838e2b-359b-4324-a85c-9e866d471f1b";
     private VideoView mVideoView;
     private TextView mBufferingTextView;
     private int mCurrentPosition = 0;
@@ -28,7 +27,7 @@ public class NationalLockdownStrategy extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cereal_national_lockdown_strategy);
+        setContentView(R.layout.fertilizer_urine_piss_fertilizer_2);
 
         mBufferingTextView = findViewById(R.id.buffering_textview);
         mVideoView = findViewById(R.id.videoview);
@@ -80,7 +79,7 @@ public class NationalLockdownStrategy extends AppCompatActivity {
                 mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
                     public void onCompletion(MediaPlayer mediaPlayer) {
-                        Toast.makeText(NationalLockdownStrategy.this, "Playback completed",
+                        Toast.makeText(UrinePissFertilizer2.this, "Playback completed",
                                 Toast.LENGTH_SHORT).show();
                         mVideoView.seekTo(1);
                     }
