@@ -63,6 +63,32 @@
 
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/discover_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Discover\n able" />
+
+            <Button
+                android:id="@+id/paired_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paired\n Device"/>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/pairedDevice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
 
     </LinearLayout>
 
