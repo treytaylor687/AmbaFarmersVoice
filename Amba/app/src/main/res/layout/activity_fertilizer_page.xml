@@ -34,7 +34,7 @@
             <RelativeLayout
                 android:id="@+id/image_btn0"
                 android:layout_width="match_parent"
-                android:layout_height="158dp"
+                android:layout_height="228dp"
                 android:layout_margin="10dp"
                 tools:layout_editor_absoluteX="9dp"
                 tools:layout_editor_absoluteY="26dp">
@@ -65,13 +65,22 @@
                     android:textAllCaps="false"
                     android:textSize="12sp"
                     android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/downloadbutton0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="41dp"
+                    android:layout_centerHorizontal="true"
+                    android:text="Download"
+                    android:layout_below="@+id/btn_urine_piss_fertilizer_2" />
             </RelativeLayout>
 
-            <!--  Urine Piss Fertilizer 2  -->
+            <!--  Human Urine Fertilizer 2  -->
             <RelativeLayout
                 android:id="@+id/image_btn1"
                 android:layout_width="match_parent"
-                android:layout_height="158dp"
+                android:layout_height="228dp"
                 android:layout_margin="10dp"
                 tools:layout_editor_absoluteX="9dp"
                 tools:layout_editor_absoluteY="26dp">
@@ -102,6 +111,15 @@
                     android:textAllCaps="false"
                     android:textSize="12sp"
                     android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/downloadbutton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="41dp"
+                    android:layout_centerHorizontal="true"
+                    android:text="Download"
+                    android:layout_below="@+id/btn_human_urine_fertilizer_2" />
             </RelativeLayout>
 
         </LinearLayout>
