@@ -35,7 +35,7 @@ public class FeedPage extends AppCompatActivity {
             public void onClick(View view) {
                 storageReference = firebaseStorage.getInstance().getReference();
                 ref = storageReference.child("AmbaLogo.jpeg");   
-                downloader.download(FeedPage.this, ref);
+                downloader.download(FeedPage.this, ref, "AmbaLogo", "jpeg");
             }
         });
     }

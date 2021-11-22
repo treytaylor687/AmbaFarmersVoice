@@ -25,15 +25,15 @@ public class Download extends AppCompatActivity {
     StorageReference ref;
     public boolean isDownloaded = false;
 
-
-    public void download(Context cx, StorageReference ref) {
+    public void download(Context cx, StorageReference ref, String fileName, String fileExtension) {
         //storageReference = firebaseStorage.getInstance().getReference();
-        //ref = storageReference.child("AmbaLogo.jpeg");
+        //ref = storageReference.child("");
         ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 String url = uri.toString();
-                downloadFile(cx,"AmbaLogo", "jpeg", Environment.DIRECTORY_DOWNLOADS, url);
+                downloadFile(cx,fileName, fileExtension, Environment.DIRECTORY_DOWNLOADS, url);
+                setIsDownloaded(true);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
