@@ -20,4 +20,5 @@
     <string name="about_us">About Us</string>
     <string name="video_n_categories">Video \n Categories</string>
     <string name="todo">TODO</string>
+    <string name="title_activity_device_list">DeviceListActivity</string>
 </resources>

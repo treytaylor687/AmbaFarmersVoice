@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ambafamersvoice">
+    package="com.example.ambafamersvoice" >
 
-    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -11,6 +10,7 @@
         android:maxSdkVersion="26" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
 
     <application
         android:allowBackup="true"
@@ -18,46 +18,51 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AmbaFamersVoice">
+        android:theme="@style/Theme.AmbaFamersVoice" >
+        <activity
+            android:name=".DeviceListActivity"
+            android:exported="true"
+            android:label="@string/title_activity_device_list"
+            android:theme="@style/Theme.AmbaFamersVoice.NoActionBar" />
         <activity
             android:name=".Bluetooth"
             android:exported="true" />
         <activity
             android:name=".BusinessVideos.NationalLockdownStrategy"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".FertilizerVideos.UrinePissFertilizer2"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".FertilizerVideos.HumanUrineFertilizer2"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".HarvestVideos.PreserveFoodDocu2"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".KnowledgeVideos.MakeOwnFridge"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".KnowledgeVideos.RocketStove"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".KnowledgeVideos.TreatDiarrhea"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".KnowledgeVideos.BuildHutBush1"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".KnowledgeVideos.BuildHutBush2"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".KnowledgeVideos.CoronaVirusPrevention"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".KnowledgeVideos.HandSanitizer"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".VegetableVideos.DrySeasonVegetables"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".HarvestPage"
             android:exported="true" />
@@ -107,7 +112,7 @@
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AmbaFamersVoice.NoActionBar">
+            android:theme="@style/Theme.AmbaFamersVoice.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
