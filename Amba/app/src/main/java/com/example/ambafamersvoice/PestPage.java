@@ -3,11 +3,17 @@ package com.example.ambafamersvoice;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DownloadManager;
+import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
+import android.view.View;
 import android.webkit.URLUtil;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -47,34 +53,43 @@ public class PestPage extends AppCompatActivity {
                         sv.addView(ll);
 
                         for (StorageReference item : listResult.getItems()) {
-                            // All the items under listRef.
-//                            System.out.println(item.getDownloadUrl().toString());
+                        //  Create and add all of the hyperlinks
                             String input = item.toString().substring(5);
                             String VIDEO_SAMPLE =
                                     "https://firebasestorage.googleapis.com/v0/b/" + input + "?alt=media&token=77bf59cd-1898-4020-aa63-f2c8f29547a7";
                             VIDEO_SAMPLE = VIDEO_SAMPLE.replace("appspot.com","appspot.com/o");
-//                            final TextView text = new TextView(PestPage.this);
-//                            text.setText(VIDEO_SAMPLE);
-//                            System.out.println(VIDEO_SAMPLE);
-//                            String fileName = item.getName().split(".");
-
                             final TextView textView = new TextView(PestPage.this);
                             textView.setClickable(true);
                             textView.setMovementMethod(LinkMovementMethod.getInstance());
                             String text = "<a href='"+ VIDEO_SAMPLE +"'> "+ item.getName() +" </a>";
                             textView.setText(Html.fromHtml(text));
                             ll.addView(textView);
+                        //  create and add the button to download each video
+                        //  this part doesn't work yet though, it gives a error:
+                            //  W/StorageUtil: no auth token for request
+                            //W/NetworkRequest: no auth token for request
+                            Button btn = new Button(PestPage.this);
+                            btn.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    //put what button does here
+                                    item.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                        @Override
+                                        public void onSuccess(Uri uri) {
+                                            String url = uri.toString();
+                                            String fileName = item.getName().replace(".mp4","");
+                                            System.out.println(fileName);
+                                            downloadFile(PestPage.this, fileName, "mp4", Environment.DIRECTORY_DOWNLOADS, url);
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
 
-//                            VideoView video = new VideoView(PestPage.this);
-//                            Uri videoUri = getMedia(VIDEO_SAMPLE);
-//                            video.setVideoURI(videoUri);
-//                            video.setLayoutParams(new FrameLayout.LayoutParams(200, 200));
-//                            ll.addView(video);
-//                            break;
-
-//                            ll.addView(text);
-
-
+                                        }
+                                    });
+                                }
+                            });
+                            ll.addView(btn);
                         }
 
                         PestPage.this.setContentView(sv);
@@ -96,6 +111,15 @@ public class PestPage extends AppCompatActivity {
             return Uri.parse("android.resource://" + getPackageName() +
                     "/raw/" + mediaName);
         }
+    }
+    public void downloadFile(Context context, String fileName, String fileExtension, String destinationDirectory, String url){
+        DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
+        Uri uri = Uri.parse(url);
+        DownloadManager.Request request = new DownloadManager.Request(uri);
+
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        request.setDestinationInExternalFilesDir(context, destinationDirectory, fileName + fileExtension);
+        downloadManager.enqueue(request);
     }
 
 
