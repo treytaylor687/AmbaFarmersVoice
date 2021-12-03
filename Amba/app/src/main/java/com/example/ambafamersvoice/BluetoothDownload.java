@@ -28,6 +28,8 @@ import android.os.Message;
 
 //import com.example.android.common.logger.Log;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -162,7 +164,7 @@ public class BluetoothDownload {
      * @param device The BluetoothDevice that has been connected
      */
     public synchronized void connected(BluetoothSocket socket, BluetoothDevice
-            device, final String socketType) {
+            device, final String socketType) throws IOException {
         //Log.d(TAG, "connected, Socket Type:" + socketType);
 
         // Cancel the thread that completed the connection
@@ -342,8 +344,12 @@ public class BluetoothDownload {
                             case STATE_LISTEN:
                             case STATE_CONNECTING:
                                 // Situation normal. Start the connected thread.
-                                connected(socket, socket.getRemoteDevice(),
-                                        mSocketType);
+                                try {
+                                    connected(socket, socket.getRemoteDevice(),
+                                            mSocketType);
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
                                 break;
                             case STATE_NONE:
                             case STATE_CONNECTED:
@@ -435,7 +441,11 @@ public class BluetoothDownload {
             }
 
             // Start the connected thread
-            connected(mmSocket, mmDevice, mSocketType);
+            try {
+                connected(mmSocket, mmDevice, mSocketType);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         public void cancel() {
@@ -454,24 +464,30 @@ public class BluetoothDownload {
     private class ConnectedThread extends Thread {
         private final BluetoothSocket mmSocket;
         private final InputStream mmInStream;
-        private final OutputStream mmOutStream;
+        //private final OutputStream mmOutStream;
+        private final FileOutputStream mmOutStream;
 
-        public ConnectedThread(BluetoothSocket socket, String socketType) {
+        //File tempFile = File.createTempFile("tempo", "mp4");
+        //File bufferFile = File.createTempFile("temp", "mp4");
+
+        private byte[] mmBuffer; // mmbuffer store for the stream
+
+        public ConnectedThread(BluetoothSocket socket, String socketType) throws IOException {
             //Log.d(TAG, "create ConnectedThread: " + socketType);
             mmSocket = socket;
             InputStream tmpIn = null;
             OutputStream tmpOut = null;
-
+            //FileOutputStream tmpOut = null;
             // Get the BluetoothSocket input and output streams
             try {
                 tmpIn = socket.getInputStream();
-                tmpOut = socket.getOutputStream();
+                tmpOut =socket.getOutputStream();
             } catch (IOException e) {
                 //Log.e(TAG, "temp sockets not created", e);
             }
 
             mmInStream = tmpIn;
-            mmOutStream = tmpOut;
+            mmOutStream = (FileOutputStream) tmpOut;
             mState = STATE_CONNECTED;
         }
 
@@ -479,9 +495,10 @@ public class BluetoothDownload {
             //Log.i(TAG, "BEGIN mConnectedThread");
             byte[] buffer = new byte[1024];
             int bytes;
-
+            //int length =
             // Keep listening to the InputStream while connected
             while (mState == STATE_CONNECTED) {
+
                 try {
                     // Read from the InputStream
                     bytes = mmInStream.read(buffer);

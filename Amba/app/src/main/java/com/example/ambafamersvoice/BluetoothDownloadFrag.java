@@ -29,11 +29,15 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+
+import java.io.File;
+
+import android.widget.VideoView;
 
 //import com.example.android.common.logger.Log;
 
@@ -67,6 +71,7 @@ public class BluetoothDownloadFrag extends Fragment {
 
     //array adapter for the whole video
     private ArrayAdapter<String> mVideoArrayAdapter;
+    //private Byte
 
     /**
      * String buffer for outgoing messages
@@ -167,23 +172,25 @@ public class BluetoothDownloadFrag extends Fragment {
         if (activity == null) {
             return;
         }
-        mVideoArrayAdapter = new ArrayAdapter<>(activity, R.layout.message);
+        //mVideoArrayAdapter = new ArrayAdapter<>(activity, R.layout.message);
 
-        mConversationView.setAdapter(mVideoArrayAdapter);
+        //mConversationView.setAdapter(mVideoArrayAdapter);
 
         // Initialize the compose field with a listener for the return key
-        mOutEditText.setOnEditorActionListener(mWriteListener);
+        //mOutEditText.setOnEditorActionListener(mWriteListener);
 
         // Initialize the send button with a listener that for click events
         mSendButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Send a message using content of the edit text widget
-                View view = getView();
-                if (null != view) {
-                    TextView textView = view.findViewById(R.id.edit_text_out);
-                    String message = textView.getText().toString();
-                    sendMessage(message);
-                }
+                videoToByte();
+                //Make video
+//                // Send a message using content of the edit text widget
+//                View view = getView();
+//                if (null != view) {
+//                    TextView textView = view.findViewById(R.id.edit_text_out);
+//                    String message = textView.getText().toString();
+//                    //sendMessage(message);
+//                }
             }
         });
 
@@ -205,45 +212,56 @@ public class BluetoothDownloadFrag extends Fragment {
             startActivity(discoverableIntent);
         }
     }
-
-    /**
-     * Sends a message.
-     *
-     * @param message A string of text to send.
-     */
-    private void sendMessage(String message) {
-        // Check that we're actually connected before trying anything
-        if (mDownloadService.getState() != BluetoothDownload.STATE_CONNECTED) {
-            //Toast.makeText(getActivity(), R.string.not_connected, Toast.LENGTH_SHORT).show();
+    private void videoToByte() {
+        if(mDownloadService.getState() != BluetoothDownload.STATE_CONNECTED) {
             return;
         }
 
-        // Check that there's actually something to send
-        if (message.length() > 0) {
-            // Get the message bytes and tell the BluetoothChatService to write
-            byte[] send = message.getBytes();
-            mDownloadService.write(send);
+        File file = new File("android.resource://" + getContext().getPackageName() + "/" + R.raw.rocketvideo);
+        int size = (int) file.length();
+        byte[] send = new byte[size];
 
-            // Reset out string buffer to zero and clear the edit text field
-            mOutStringBuffer.setLength(0);
-            mOutEditText.setText(mOutStringBuffer);
-        }
+        mDownloadService.write(send);
     }
 
-    /**
-     * The action listener for the EditText widget, to listen for the return key
-     */
-    private TextView.OnEditorActionListener mWriteListener
-            = new TextView.OnEditorActionListener() {
-        public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
-            // If the action is a key-up event on the return key, send the message
-            if (actionId == EditorInfo.IME_NULL && event.getAction() == KeyEvent.ACTION_UP) {
-                String message = view.getText().toString();
-                sendMessage(message);
-            }
-            return true;
-        }
-    };
+//    /**
+//     * Sends a message.
+//     *
+//     * @param message A string of text to send.
+//     */
+//    private void sendMessage(String message) {
+//        // Check that we're actually connected before trying anything
+//        if (mDownloadService.getState() != BluetoothDownload.STATE_CONNECTED) {
+//            //Toast.makeText(getActivity(), R.string.not_connected, Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//
+//        // Check that there's actually something to send
+//        if (message.length() > 0) {
+//            // Get the message bytes and tell the BluetoothChatService to write
+//            byte[] send = message.getBytes();
+//            mDownloadService.write(send);
+//
+//            // Reset out string buffer to zero and clear the edit text field
+//            mOutStringBuffer.setLength(0);
+//            mOutEditText.setText(mOutStringBuffer);
+//        }
+//    }
+
+//    /**
+//     * The action listener for the EditText widget, to listen for the return key
+//     */
+//    private TextView.OnEditorActionListener mWriteListener
+//            = new TextView.OnEditorActionListener() {
+//        public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
+//            // If the action is a key-up event on the return key, send the message
+//            if (actionId == EditorInfo.IME_NULL && event.getAction() == KeyEvent.ACTION_UP) {
+//                String message = view.getText().toString();
+//                sendMessage(message);
+//            }
+//            return true;
+//        }
+//    };
 
     /**
      * Updates the status on the action bar.
@@ -412,50 +430,8 @@ public class BluetoothDownloadFrag extends Fragment {
 //        return false;
 //    }
 
-//    // TODO: Rename parameter arguments, choose names that match
-//    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-//    private static final String ARG_PARAM1 = "param1";
-//    private static final String ARG_PARAM2 = "param2";
-//
-//    // TODO: Rename and change types of parameters
-//    private String mParam1;
-//    private String mParam2;
-//
-//    public BluetoothDownloadFrag() {
-//        // Required empty public constructor
-//    }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment BluetoothDownloadFrag.
-     */
-    // TODO: Rename and change types and number of parameters
-//    public static BluetoothDownloadFrag newInstance(String param1, String param2) {
-//        BluetoothDownloadFrag fragment = new BluetoothDownloadFrag();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
-//
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
-//    }
-//
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_bluetooth_download, container, false);
-//    }
+
+
+
 }
