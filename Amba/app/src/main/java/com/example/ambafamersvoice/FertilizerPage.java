@@ -5,102 +5,129 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DownloadManager;
 import android.content.Context;
-import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.animation.AnimationUtils;
+import android.webkit.URLUtil;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
-import com.example.ambafamersvoice.FertilizerVideos.HumanUrineFertilizer2;
-import com.example.ambafamersvoice.FertilizerVideos.UrinePissFertilizer2;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.ListResult;
 import com.google.firebase.storage.StorageReference;
 
 public class FertilizerPage extends AppCompatActivity {
-    ImageView rImage;
-    Button downButton0;
-    Button downButton1;
-    FirebaseStorage firebaseStorage;
-    StorageReference storageReference;
-    StorageReference ref;
+    private static StorageReference storageRef = FirebaseStorage.getInstance().getReferenceFromUrl("gs://amba-farmers-voice-d1a51.appspot.com/fertilizer");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fertilizer_page);
-        downButton0 = findViewById(R.id.downloadbutton0);
-        downButton1 = findViewById(R.id.downloadbutton1);
 
-        ImageButton urine_piss_fertilizer_2 = (ImageButton)findViewById(R.id.btn_urine_piss_fertilizer_2);
-        urine_piss_fertilizer_2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(FertilizerPage.this, UrinePissFertilizer2.class));
-            }
-        });
+        storageRef.listAll()
+                .addOnSuccessListener(new OnSuccessListener<ListResult>() {
+                    @Override
+                    public void onSuccess(ListResult listResult) {
+                        for (StorageReference prefix : listResult.getPrefixes()) {
+                            System.out.println(prefix);
+                        }
 
-        ImageButton human_urine_fertilizer_2 = (ImageButton)findViewById(R.id.btn_human_urine_fertilizer_2);
-        human_urine_fertilizer_2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(FertilizerPage.this, HumanUrineFertilizer2.class));
-            }
-        });
+                        ScrollView sv = new ScrollView(FertilizerPage.this);
+                        sv.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT));
+                        LinearLayout ll = new LinearLayout(FertilizerPage.this);
+                        ll.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
+                        ll.setOrientation(LinearLayout.VERTICAL);
+                        sv.addView(ll);
+                        final TextView textView = new TextView(FertilizerPage.this);
+                        textView.setText("Fertilizer Page");
+                        textView.setTextSize(50);
+                        ll.addView(textView);
+                        if (listResult.getItems().size() == 0) {
+                            final TextView textView1 = new TextView(FertilizerPage.this);
+                            textView1.setText("There are no videos for this category... yet :)");
+                            textView1.setTextSize(40);
+                            ll.addView(textView1);
+                        }
+                        for (StorageReference item : listResult.getItems()) {
+                            //  Create and add all of the hyperlinks
+                            String input = item.toString().substring(5);
 
-        downButton0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                download0();
-            }
-        });
+                            item.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Uri> task) {
+                                    String VIDEO_SAMPLE=task.getResult().toString();
+                                    Log.i("URL",VIDEO_SAMPLE);
+                                    System.out.println(VIDEO_SAMPLE);
+                                    final TextView textView = new TextView(FertilizerPage.this);
+                                    textView.setClickable(true);
+                                    textView.setMovementMethod(LinkMovementMethod.getInstance());
+                                    String text = "<a href='"+ VIDEO_SAMPLE +"'> "+ item.getName() +" </a>";
+                                    textView.setText(Html.fromHtml(text));
+                                    textView.setTextSize(27);
+                                    ll.addView(textView);
 
-        downButton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                download1();
-            }
-        });
+                                    Button btn = new Button(FertilizerPage.this);
+                                    btn.setText("Download Video Above");
+                                    btn.setTextColor(Color.GREEN);
+                                    btn.setBackgroundColor(Color.parseColor("#5844e4"));
+                                    btn.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            btn.startAnimation(AnimationUtils.loadAnimation(FertilizerPage.this,R.anim.shake));
+                                            item.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                @Override
+                                                public void onSuccess(Uri uri) {
+                                                    String url = uri.toString();
+                                                    String fileName = item.getName().replace(".mp4","");
+                                                    System.out.println(fileName);
+                                                    downloadFile(FertilizerPage.this, fileName, "mp4", Environment.DIRECTORY_DOWNLOADS, url);
+                                                }
+                                            }).addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+
+                                                }
+                                            });
+                                        }
+                                    });
+                                    ll.addView(btn);
+                                }
+                            });
+                        }
+                        FertilizerPage.this.setContentView(sv);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Uh-oh, an error occurred!
+                        System.out.println(e);
+                    }
+                });
     }
-
-    public void download0() {
-        storageReference = firebaseStorage.getInstance().getReference();
-        ref = storageReference.child("How to Make Your Own Organic Fertilizer With Urine (Piss) Part 2.mp4");
-        ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                String url = uri.toString();
-                downloadFile(FertilizerPage.this, "How to Make Your Own Organic Fertilizer With Urine (Piss) Part 2", "mp4", Environment.DIRECTORY_DOWNLOADS, url);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-
-            }
-        });
+    private Uri getMedia(String mediaName) {
+        if (URLUtil.isValidUrl(mediaName)) {
+            // media name is an external URL
+            return Uri.parse(mediaName);
+        } else { // media name is a raw resource embedded in the app
+            return Uri.parse("android.resource://" + getPackageName() +
+                    "/raw/" + mediaName);
+        }
     }
-
-    public void download1() {
-        storageReference = firebaseStorage.getInstance().getReference();
-        ref = storageReference.child("How to make your own organic Fertilizer using Human Urine Episode 2.mp4");
-        ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                String url = uri.toString();
-                downloadFile(FertilizerPage.this, "How to make your own organic Fertilizer using Human Urine Episode 2", "mp4", Environment.DIRECTORY_DOWNLOADS, url);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-
-            }
-        });
-    }
-
     public void downloadFile(Context context, String fileName, String fileExtension, String destinationDirectory, String url){
         DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
         Uri uri = Uri.parse(url);
@@ -110,4 +137,6 @@ public class FertilizerPage extends AppCompatActivity {
         request.setDestinationInExternalFilesDir(context, destinationDirectory, fileName + fileExtension);
         downloadManager.enqueue(request);
     }
+
+
 }

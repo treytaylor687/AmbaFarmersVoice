@@ -5,32 +5,33 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DownloadManager;
 import android.content.Context;
-import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.webkit.URLUtil;
 import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.VideoView;
 
-import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.ListResult;
 import com.google.firebase.storage.StorageReference;
 
 public class PestPage extends AppCompatActivity {
-    private static StorageReference storageRef = FirebaseStorage.getInstance().getReferenceFromUrl("gs://amba-farmers-voice-d1a51.appspot.com");
+    private static StorageReference storageRef = FirebaseStorage.getInstance().getReferenceFromUrl("gs://amba-farmers-voice-d1a51.appspot.com/pest");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,47 +52,62 @@ public class PestPage extends AppCompatActivity {
                         ll.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
                         ll.setOrientation(LinearLayout.VERTICAL);
                         sv.addView(ll);
-
+                        final TextView textView = new TextView(PestPage.this);
+                        textView.setText("Pest Page");
+                        textView.setTextSize(50);
+                        ll.addView(textView);
+                        if (listResult.getItems().size() == 0) {
+                            final TextView textView1 = new TextView(PestPage.this);
+                            textView1.setText("There are no videos for this category... yet :)");
+                            textView1.setTextSize(40);
+                            ll.addView(textView1);
+                        }
                         for (StorageReference item : listResult.getItems()) {
-                        //  Create and add all of the hyperlinks
+                            //  Create and add all of the hyperlinks
                             String input = item.toString().substring(5);
-                            String VIDEO_SAMPLE =
-                                    "https://firebasestorage.googleapis.com/v0/b/" + input + "?alt=media&token=77bf59cd-1898-4020-aa63-f2c8f29547a7";
-                            VIDEO_SAMPLE = VIDEO_SAMPLE.replace("appspot.com","appspot.com/o");
-                            final TextView textView = new TextView(PestPage.this);
-                            textView.setClickable(true);
-                            textView.setMovementMethod(LinkMovementMethod.getInstance());
-                            String text = "<a href='"+ VIDEO_SAMPLE +"'> "+ item.getName() +" </a>";
-                            textView.setText(Html.fromHtml(text));
-                            ll.addView(textView);
-                        //  create and add the button to download each video
-                        //  this part doesn't work yet though, it gives a error:
-                            //  W/StorageUtil: no auth token for request
-                            //W/NetworkRequest: no auth token for request
-                            Button btn = new Button(PestPage.this);
-                            btn.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    //put what button does here
-                                    item.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            String url = uri.toString();
-                                            String fileName = item.getName().replace(".mp4","");
-                                            System.out.println(fileName);
-                                            downloadFile(PestPage.this, fileName, "mp4", Environment.DIRECTORY_DOWNLOADS, url);
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
 
+                            item.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Uri> task) {
+                                    String VIDEO_SAMPLE=task.getResult().toString();
+                                    Log.i("URL",VIDEO_SAMPLE);
+                                    System.out.println(VIDEO_SAMPLE);
+                                    final TextView textView = new TextView(PestPage.this);
+                                    textView.setClickable(true);
+                                    textView.setMovementMethod(LinkMovementMethod.getInstance());
+                                    String text = "<a href='"+ VIDEO_SAMPLE +"'> "+ item.getName() +" </a>";
+                                    textView.setText(Html.fromHtml(text));
+                                    textView.setTextSize(27);
+                                    ll.addView(textView);
+
+                                    Button btn = new Button(PestPage.this);
+                                    btn.setText("Download Video Above");
+                                    btn.setTextColor(Color.GREEN);
+                                    btn.setBackgroundColor(Color.parseColor("#5844e4"));
+                                    btn.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            btn.startAnimation(AnimationUtils.loadAnimation(PestPage.this,R.anim.shake));
+                                            item.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                @Override
+                                                public void onSuccess(Uri uri) {
+                                                    String url = uri.toString();
+                                                    String fileName = item.getName().replace(".mp4","");
+                                                    System.out.println(fileName);
+                                                    downloadFile(PestPage.this, fileName, "mp4", Environment.DIRECTORY_DOWNLOADS, url);
+                                                }
+                                            }).addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+
+                                                }
+                                            });
                                         }
                                     });
+                                    ll.addView(btn);
                                 }
                             });
-                            ll.addView(btn);
                         }
-
                         PestPage.this.setContentView(sv);
                     }
                 })
